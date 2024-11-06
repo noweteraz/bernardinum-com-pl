@@ -7,7 +7,7 @@ owner: Wydawnictwo Bernardinum
 first_published: 
 email: 
 baseurl: "" 
-url: "/noweteraz.bernardinum-com-pl"
+url: ""
 logo_url: /images/Logo-Bernardinum-480px-white-web.png
 social:
   twitter: 
@@ -16,6 +16,14 @@ social:
   facebook-official: 
 formspark_id: 
 
+exclude: [
+    Gemfile,
+    Gemfile.lock,
+    .gitignore,
+    README,
+    LICENSE,
+    spectral_jekyll_theme.gemspec
+]
 
 markdown: kramdown
 #sass:
