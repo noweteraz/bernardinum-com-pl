@@ -1489,7 +1489,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		position: relative;
 		text-align: center;
 
-		h2 {
+		h1 {
 			@include vendor('transform', 'scale(1)');
 			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
 			display: inline-block;
@@ -1502,7 +1502,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			&:before, &:after {
 				@include vendor('transition', 'width 0.85s ease');
 				@include vendor('transition-delay', '0.25s');
-				background: _palette(fg-bold);
+				background: _palette(fg-yellow);
 				content: '';
 				display: block;
 				height: 2px;
@@ -1519,6 +1519,11 @@ $baseurl: '{{ site.baseurl }}/images';
 				bottom: 0;
 				right: 0;
 			}
+
+			img {
+				width: 100%;
+				display: block;
+			}
 		}
 
 		p {
@@ -1532,7 +1537,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		.more {
 			@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
-			@include vendor('transition-delay', '3.5s');
+			@include vendor('transition-delay', '1.5s');
 			@include vendor('transform', 'translateY(0)');
 			border: none;
 			bottom: 0;
@@ -1548,7 +1553,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			position: absolute;
 			text-align: center;
 			text-transform: uppercase;
-			width: 16em;
+			width: 19em;
 			z-index: 1;
 
 			&:after {
@@ -1570,7 +1575,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		&:after {
 			@include vendor('pointer-events', 'none');
 			@include vendor('transition', 'opacity #{_duration(fadein)} ease-in-out');
-			@include vendor('transition-delay', '1.25s');
+			@include vendor('transition-delay', '0.25s');
 			content: '';
 			background: _palette(bg);
 			display: block;
@@ -1587,23 +1592,27 @@ $baseurl: '{{ site.baseurl }}/images';
 			height: auto;
 			min-height: 0;
 
-			h2 {
+			h1 {
 				font-size: 1.25em;
 			}
 
+			img {
+				width: 50%;
+			}
+
 			br {
-				display: none;
+				//display: none;
 			}
 
 			.more {
-				display: none;
+				//display: none;
 			}
 		}
 	}
 
 	body.is-loading {
 		#banner {
-			h2 {
+			h1 {
 				@include vendor('transform', 'scale(0.95)');
 				opacity: 0;
 
@@ -1643,6 +1652,58 @@ $baseurl: '{{ site.baseurl }}/images';
 			.actions {
 				@include vendor('order', '2');
 				width: 30%;
+
+				/* Signup Form */
+
+	#signup-form {
+		@include vendor('display', 'flex');
+		position: relative;
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"] {
+			width: 18em;
+		}
+
+		> * {
+			margin: 0 0 0 1em;
+		}
+
+		> :first-child {
+			margin: 0 0 0 0;
+		}
+
+		input[type="submit"] {
+			padding: 0 3em;
+			height: auto;
+			overflow: visible;
+		}
+
+		@include breakpoint(small) {
+			@include vendor('flex-direction', 'column');
+
+			input[type="type"],
+			input[type="password"],
+			input[type="email"] {
+				width: 100%;
+			}
+
+			> * {
+				margin: 1.25em 0 0 0;
+			}
+
+			.message {
+				bottom: -1.5em;
+				font-size: 0.9em;
+				height: 1em;
+				left: 0;
+				line-height: inherit;
+				margin-top: 0;
+				position: absolute;
+			}
+		}
+	}
+
 			}
 
 			@include breakpoint(medium) {
@@ -1675,14 +1736,14 @@ $baseurl: '{{ site.baseurl }}/images';
 	#main {
 		> header {
 			@include padding(12em, 0);
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/baner-header-gmach-spolki-pielgrzym.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
 			text-align: center;
 
-			h2 {
+			h1 {
 				font-size: 1.75em;
 				margin: 0 0 (_size(element-margin) * 0.25) 0;
 			}
@@ -1713,7 +1774,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			@include breakpoint(small) {
 				@include padding(5em, 3em);
 
-				h2 {
+				h1 {
 					font-size: 1.25em;
 					margin: 0 0 (_size(element-margin) * 0.5) 0;
 				}
@@ -1732,7 +1793,7 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Footer */
 
 	#footer {
-		@include padding(6em, 0);
+		@include padding(3em, 0);
 		background-color: darken(_palette(bg), 8);
 		text-align: center;
 
@@ -1800,7 +1861,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	body.landing {
 		#page-wrapper {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/baner-header-gmach-spolki-pielgrzym.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1810,6 +1871,9 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		#footer {
 			background-color: darken(transparentize(_palette(bg), 0.1), 8);
+		}
+		#cta {
+			background-image: none;
 		}
 	}
 
@@ -1821,7 +1885,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			#banner,
 			.wrapper.style4 {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
+				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/baner-header-gmach-spolki-pielgrzym.jpg")'));
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
