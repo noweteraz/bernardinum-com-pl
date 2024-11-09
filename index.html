@@ -26,10 +26,14 @@ excerpt: Wydawnictwo Bernardinum – szeroki wybór książek religijnych, histo
 								<p>Podaj nam swój e-mail, a wyślemy Ci kupon rabatowy z 20% zniżką na nasze książki.</p>
 							</header>
 							<ul class="actions vertical">
-								<form id="signup-form" method="post" action="https://submit-form.com/Pab72KVv4">
+								<form id="signup-form" method="post" data-botpoison-public-key="pk_d58c5d48-cf52-4d06-bcaf-728e4ec143ec" action="https://submit-form.com/Pab72KVv4">
 								<input type="hidden" name="_feedback.whitelabel" value="true" />
 								<input type="hidden" name="_feedback.success.title" value="Dziękujemy za przesłanie formularza!" />
-								<input type="email" name="email" id="email" placeholder="Twój E-mail" required/>
+								<input type="hidden" name="_email.subject" value="Nowy odbiorca kuponu promocyjnego -20%" />
+								<input type="hidden" name="_email.from" value="Wydawnictwo Bernardinum" />
+								<input type="hidden" name="_email.template.title" value="Odbiorca kuponu promocyjnego -20%" />
+								<input type="hidden" name="_email.template.footer" value="false" />
+								<input type="email" name="email" id="email" placeholder="Twój E-mail" required />
 								<input type="submit" value="Wyślij" />
 								</form>
 							</ul>
