@@ -1,7 +1,8 @@
 import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js';
 
-// Enable dark mode
 document.documentElement.classList.add('cc--darkmode');
+
+const cc = CookieConsent;
 
 CookieConsent.run({
     guiOptions: {
@@ -22,10 +23,22 @@ CookieConsent.run({
         necessary: {
             readOnly: true
         },
-        analytics: {
-            enabled: false
-        }
+        analytics: {}
     },
+    onFirstConsent: ({ cookie }) => {
+        console.log('onFirstConsent executed', cc.getUserPreferences(), cookie);
+      },
+    
+      onConsent: ({ cookie }) => {
+        console.log('onConsent executed', cc.getUserPreferences());
+      },
+      onChange: ({ cookie, changedCategories }) => {
+        console.log(
+          'onChange executed',
+          changedCategories,
+          cc.getUserPreferences()
+        );
+      },
     language: {
         default: "en",
         autoDetect: "browser",
